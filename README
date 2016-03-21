@@ -1,0 +1,64 @@
+How to use Hippocampus_Map.m
+Author: Helen Wu
+Version: 062014
+
+Purpose/What you can do:
+* Allows user to draw along hippocampus and measures along hippocampus
+* Allows user to choose boundaries of expression along hippocampus
+* Allows user to click and count cells along hippocampus
+* Retains distances between boundaries of expression and exports as text file
+* Produces graphical, flattened representation of the hippocampus and corresponding expression
+* Retains coordinates of expression and exports as text file
+* Graphs histogram of expression in a clicked section
+* Produces flattened heat map representation of the hippocampus and corresponding intensity of expression in clicked brains
+
+FILES NEEDED (included in the repository by which Hippocampus_Map is transferred): 
+getPoint.m
+creategraph.m
+ManetGInput.m (http://www.mathworks.com/matlabcentral/fileexchange/3265-magnetginput)
+curvspace.m (http://www.mathworks.com/matlabcentral/fileexchange/7233-curvspace)
+
+
+———————————————————————————————————————
+How to use:
+
+- Run whatever version of Hippocampus_Map.m you have.
+- Type in how many images you have in the folder that you will be analyzing in the command window when it prompts you.
+- A window will pop up prompting you to choose files. 
+- Choose the image files that you want to analyze (make sure you choose them in some sort of order, like dorsal to ventral, because the graphs will be based off of this order).
+- When it asks, type in the word “cells” if you want to click the cells that are labeled OR “boundaries” if you just want to click the boundaries of the expression.
+- Your first image will pop up - trace through the hippocampus, starting from CA3 through to the subiculum.
+- When it prompts you, click the CA2-CA1 boundary, then click the CA1-subiculum boundary (the order is essential!). This forms the CA1 region.
+- Now, depending on whether you chose cells or boundaries, this is where the program diverges.
+
+CELLS
+- When it prompts you, click and drag to create a rectangle of the field of vision you want to zoom in to- make sure the rectangle includes all the cells you want to click. In this version, you can only zoom in once, so pick carefully! (Sorry, I’m working on it).
+- In the zoomed in view, double click the cells you want to count. (When the mouse becomes crosshairs, that’s when you’re actually clicking the cells — the second click is to confirm continuation. Small blue dots will appear where you have clicked with the crosshairs.) When you get to the last cell you want to click, click the cell with the crosshairs mouse, and instead of clicking a second time, press any key on the keyboard to exit and proceed to the next section.
+- The next section will pop up, so start again from tracing along the hippocampus and repeat until you are done with all sections.
+- Then, a histogram indicating the distribution and intensity of expression in that section will pop up as figure 1.
+- A blank figure 2 will pop up and it will ask you how many sections you counted. Enter in the number.
+- A window will pop up; choose the text file to which the intensity data was saved — in this version “intensityArr.txt”.
+- It will ask you cells or boundaries? enter in “cells” (pardon the redundancy, I’m working on it).
+- A heatmap will be produced in figure 2 through all the sections that you counted.
+
+BOUNDARIES
+- When it prompts you, click the boundary of expression closest to the DG first. Then click the boundary of expression closer to the subiculum.
+- The next image will pop up - repeat; begin by drawing through the hippocampus.
+- After you are done with all the sections,it will ask you how many sections you counted. Enter in the number.
+- A window will pop up; choose the text file to which the data was saved
+- It will ask you cells or boundaries? enter in “boundaries” (pardon the redundancy, I’m working on it).
+- The program will produce a flattened map of the hippocampus, with expression in red, CA1 outlined as a skinny box, and blue as the background of the whole hippocampus.
+
+IMPORTANT NOTES:
+1. As of this version, if you want to click cells, the CELLS must be in the GREEN CHANNEL. If you want to click BOUNDARIES, the expression must be in the RED CHANNEL.
+2. Make sure your images are in some sort of reasonable order because the graphs will be based on that order.
+3. When drawing the line through the hippocampus, start from CA3 and draw through subiculum.
+4. When clicking boundaries, click the boundary closest to CA3 and end with the boundary closest to subiculum.
+
+STUFF THAT I AM WORKING ON:
+1. Getting rid of the line that you draw through the hippocampus - it makes it kind of hard to see when you want to click the boundaries of CA1.
+2. Your photo format - right now, I can hard code it to be different types — but I want to give the option to the user (JPEG, TIFF, etc).
+3. Right now, a histogram is made only for the last section in one counts cells - I want to give the option of having it for each individual section or not having it at all.
+4. Give user the choice to customize data text file names — right now they are hard-coded, and, thus, it is not difficult to override one’s data inadvertently (oops).
+5. Better zoom — create functionality to zoom out again and choose more regions to zoom in to.
+
